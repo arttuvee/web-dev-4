@@ -1,14 +1,10 @@
-import app from '../app.js';
-import express from 'express';
-import catRouter from './routes/cat.js';
+import express from "express";
+import catRouter from "./routes/cat-router.js";
+import userRouter from "./routes/user-router.js";
 
 const router = express.Router();
 
-router.use('/cat', catRouter);
+router.use("/cats", catRouter);
+router.use("/users", userRouter);
 
-const hostname = '127.0.0.1';
-const port = 3000;
-
-app.listen(port, hostname, () => {
-   console.log(`Server running at http://${hostname}:${port}/`);
-});
+export default router;
