@@ -4,7 +4,7 @@ import userRouter from "./routes/user-router.js";
 
 const router = express.Router();
 
-router.use("/cats", catRouter);
-router.use("/users", userRouter);
+router.use("/cat", catRouter);
+router.use("/user", userRouter);
 
 export default router;
