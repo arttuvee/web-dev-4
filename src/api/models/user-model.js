@@ -19,9 +19,9 @@ const userItems = [
 
   {
     user_id: 3633,
-    name: "Doe Joe",
-    username: "doejoe",
-    email: "doe@metropolia.fi",
+    name: "Mary Doe",
+    username: "marydoe",
+    email: "mary@metropolia.fi",
     role: "user",
     password: "password",
   },
