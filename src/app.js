@@ -1,25 +1,16 @@
-import express from 'express';
-const hostname = '127.0.0.1';
+import express from "express";
+import api from "./api/index.js";
 const app = express();
-const port = 3000;
 
-app.use('/public', express.static('public'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-  res.send('Welcome to my REST API!');
+app.use("/public/", express.static("public"));
+
+app.use("/api/v1", api);
+
+app.get("/", (req, res) => {
+  res.send("Hello world!");
 });
 
-app.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
-
-app.get('/api/v1/cat', (req, res) => {
-  res.json({
-    cat_id: 1,
-    name: 'Fluffy',
-    birthdate: '2010-01-01',
-    weight: 4.5,
-    owner: 'John Doe',
-    image: 'https://loremflickr.com/320/240/cat'
-  });
-});
+export default app;
