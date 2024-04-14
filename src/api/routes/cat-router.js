@@ -1,5 +1,6 @@
 import express from "express";
 import multer from 'multer';
+import { createThumbnail } from '../../middlewares.js';
 import {
   getCat,
   getCatById,
@@ -41,7 +42,7 @@ const upload = multer({dest: 'uploads/', storage: myStorage});
 
 catRouter.route('/')
   .get(getCat)
-  .post(upload.single("filename"), postCat);
+  .post(upload.single("filename"), createThumbnail, postCat);
 
 catRouter.route('/:id')
   .get(getCatById)
